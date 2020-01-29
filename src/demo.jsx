@@ -1,5 +1,4 @@
 import React from 'react'
-import './App.css'
 import { HTMLTag, String } from './HTMLTag'
 
 const Demo = () => {
