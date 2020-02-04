@@ -7,25 +7,38 @@ import Cursor from './cursor'
 const rand = (start, end) => Math.round(Math.random() * (end - start) + start)
 
 const String = ({ text = "", style = {}, nth, parentQueue, parentDispatch }) => {
-    const [[cursor, val], setCursor] = useState([0, ''])
+    const loop = useRef(null)
+    const [str, setStr] = useState('')
     const len = text.length
 
-    const write = () => {
-        if (parentQueue === nth && cursor < len)
-            setTimeout(() => {
-                setCursor(([cursor, val]) => [cursor + 1, val + text[cursor]])
-            }, cursor > 0 ? rand(95, 175) : 485)
+    useEffect(() => {
+        const animate = (timestamp, delay, cursor = 0, initialTimestamp = undefined) => {
+            initialTimestamp = initialTimestamp || timestamp
 
-        else if (parentQueue === nth && cursor === len)
-            setTimeout(() => parentDispatch({ type: 'INCREMENT' }), 500)
-    }
+            if (timestamp - initialTimestamp >= delay) {
+                setStr(prev => prev + text[cursor])
+                cursor++
+                delay += rand(95, 175)
+            }
 
-    useEffect(write, [cursor, parentQueue])
+            if (parentQueue === nth && cursor < len) {
+                requestAnimationFrame(timestamp => animate(timestamp, delay, cursor, initialTimestamp))
+            } else if (parentQueue === nth && cursor === len) {
+                setTimeout(() => parentDispatch({ type: 'INCREMENT' }), 500)
+                cancelAnimationFrame(loop.current)
+            }
+        }
+
+        if (parentQueue === nth) loop.current = requestAnimationFrame(timestamp => animate(timestamp, 485))
+
+        return () => cancelAnimationFrame(loop.current)
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [parentQueue])
 
     return (
         <div className="html-writer-element string" style={style}>
-            <span>{val}</span>
-            <Cursor blinkDep={val} display={parentQueue === nth} />
+            <span>{str}</span>
+            <Cursor blinkDep={str} display={parentQueue === nth} />
         </div>
     )
 }
