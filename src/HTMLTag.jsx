@@ -22,7 +22,7 @@ const String = ({ text = "", style = {}, nth, parentQueue, parentDispatch }) => 
             }
 
             if (parentQueue === nth && cursor < len) {
-                requestAnimationFrame(timestamp => animate(timestamp, delay, cursor, initialTimestamp))
+                loop.current = requestAnimationFrame(timestamp => animate(timestamp, delay, cursor, initialTimestamp))
             } else if (parentQueue === nth && cursor === len) {
                 setTimeout(() => parentDispatch({ type: 'INCREMENT' }), 500)
                 cancelAnimationFrame(loop.current)

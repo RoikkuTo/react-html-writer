@@ -29,7 +29,7 @@ const OpenTag = ({ tagName, queue, dispatch, attr = {} }) => {
             }
 
             if (queue === 0 && cursor < iterationCount) {
-                requestAnimationFrame(timestamp => animate(timestamp, delay, cursor, initialTimestamp))
+                loop.current = requestAnimationFrame(timestamp => animate(timestamp, delay, cursor, initialTimestamp))
             } else if (queue === 0 && cursor === iterationCount) {
                 dispatch({ type: 'INCREMENT' })
                 cancelAnimationFrame(loop.current)

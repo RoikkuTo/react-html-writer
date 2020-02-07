@@ -20,7 +20,7 @@ const CloseTag = ({ tagName, queue, dispatch, shouldOpen }) => {
             }
 
             if (queue === 1 && cursor < len) {
-                requestAnimationFrame(timestamp => animate(timestamp, delay, cursor, initialTimestamp))
+                loop.current = requestAnimationFrame(timestamp => animate(timestamp, delay, cursor, initialTimestamp))
             } else if (queue === 1 && cursor === len) {
                 const [open, setIsOpen] = shouldOpen
                 if (open) {
