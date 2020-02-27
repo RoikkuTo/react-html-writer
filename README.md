@@ -8,7 +8,10 @@ $ npm install react-html-writer
 ```
 
 ## Components
-### Tag `<Tag></Tag>`
+### Tag
+`<Tag></Tag>`
+
+As a normal HTML tag, you can add any child element or string as a child component.
 | Properties | Type    | Description                                                                       |
 | ---------- | ------- | --------------------------------------------------------------------------------- |
 | tagName    | String  | Define the tagname (*div, span, ...*)                                             |
@@ -16,7 +19,10 @@ $ npm install react-html-writer
 | open       | Boolean | Open de tags when the writing is finished                                         |
 | loop       | Boolean | Loop the animation                                                                |
 
-### String `<String />`
+### String
+`<String />`
+
+This component is only used to write strings, so you cannot specify any string if not through the **text** property.
 | Properties | Type   | Description                                                               |
 | ---------- | ------ | ------------------------------------------------------------------------- |
 | text       | String | Define the string to write                                                |
