@@ -56,7 +56,7 @@ const reducer = (queue, action) => {
     }
 }
 
-const HTMLTag = ({
+const Tag = ({
     tagName,
     children = [],
     open,
@@ -129,4 +129,4 @@ const HTMLTag = ({
     )
 }
 
-export { HTMLTag, String }
+export { Tag, String }
