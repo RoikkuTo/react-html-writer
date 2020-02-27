@@ -1,5 +1,5 @@
 # React HTML Writer
-This are some components that will allow you to animate HTML writing on your application.
+This are some components that will allow you to animate HTML writing on your application. I will add functionalities and fix progressively 😊.
 
 ## Installation
 Via npm
@@ -52,3 +52,6 @@ For a full demo with animtions, try this [CodePen](https:// "Full Demo") or use 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+
+## License
+Use it as you wish, but try not to forget where it come from. 👍🏿
