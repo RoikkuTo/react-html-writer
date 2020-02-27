@@ -1,5 +1,5 @@
 # React HTML Writer
-This are some components that will allow you to animate HTML writing on your application. I will add functionalities and fix progressively 😊.
+This are some components that will allow you to animate HTML writing on your application. I will add functionalities and fixes progressively 😊.
 
 ## Installation
 Via npm
