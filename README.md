@@ -11,7 +11,7 @@ $ npm install react-html-writer
 ### Tag
 `<Tag></Tag>`
 
-As a normal HTML tag, you can add any child element or string as a child component.
+As a normal HTML tag, you can add any child element or string as a *Tag* or *String* component.
 | Properties | Type    | Description                                                                       |
 | ---------- | ------- | --------------------------------------------------------------------------------- |
 | tagName    | String  | Define the tagname (*div, span, ...*)                                             |
@@ -22,7 +22,7 @@ As a normal HTML tag, you can add any child element or string as a child compone
 ### String
 `<String />`
 
-This component is only used to write strings, so you cannot specify any string if not through the **text** property.
+This component is only used to write **strings**, so you cannot specify any string if not through the `text` property.
 | Properties | Type   | Description                                                               |
 | ---------- | ------ | ------------------------------------------------------------------------- |
 | text       | String | Define the string to write                                                |
@@ -42,11 +42,11 @@ const HelloWorld = () => (
 
 export default HelloWorld
 ```
-So the end result will look like this.
+So the end result will look like this. ( *no animation* )
 ```html
 <h1>Hello World !</h1>
 ```
-For a full demo with animtions, try this [CodePen](https:// "Full Demo") or use the `demo.jsx` inside the **src** folder.
+For a full demo with animtions, try this [CodePen](https:// "Full Demo") or use the `demo.jsx` inside the *src* folder.
 
 ## Environment
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
