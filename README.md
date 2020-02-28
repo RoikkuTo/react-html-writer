@@ -36,7 +36,7 @@ import { Tag, String } from 'react-html-writer'
 
 const HelloWorld = () => (
     <Tag tagName="h1">
-        <String text="Hello World !">
+        <String text="Hello World !" />
     </Tag>
 )
 
