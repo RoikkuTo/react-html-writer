@@ -1,4 +1,4 @@
 import { Tag, String } from './Tag'
 
-module.export.Tag = Tag
-module.export.String = String
+module.exports.Tag = Tag
+module.exports.String = String
