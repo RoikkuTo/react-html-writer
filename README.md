@@ -47,3 +47,9 @@ So the end result will look like this. ( *no animation* )
 <h1>Hello World !</h1>
 ```
 For a full demo with animtions, try this [CodePen](https:// "Full Demo") or use the `demo.jsx` inside the *src* folder.
+
+## Todolist
+* [ ] Create or choose a theme by default (color, font, size, ...)
+* [ ] Add a duration setting
+* [ ] Add a timeline
+* [ ] Add @types
