@@ -47,6 +47,3 @@ So the end result will look like this. ( *no animation* )
 <h1>Hello World !</h1>
 ```
 For a full demo with animtions, try this [CodePen](https:// "Full Demo") or use the `demo.jsx` inside the *src* folder.
-
-## License
-Use it as you wish, but try not to forget where it come from. 👍🏿
