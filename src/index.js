@@ -1,6 +1,4 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
-import './index.css'
-import Demo from './demo.jsx'
+import { Tag, String } from './Tag'
 
-ReactDOM.render(<Demo />, document.getElementById('root'))
+module.export.Tag = Tag
+module.export.String = String

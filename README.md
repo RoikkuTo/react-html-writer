@@ -4,7 +4,7 @@ This are some components that will allow you to animate HTML writing on your app
 ## Installation
 Via npm
 ```bash
-$ npm install react-html-writer
+$ npm i -S react-html-writer
 ```
 
 ## Components
@@ -47,11 +47,6 @@ So the end result will look like this. ( *no animation* )
 <h1>Hello World !</h1>
 ```
 For a full demo with animtions, try this [CodePen](https:// "Full Demo") or use the `demo.jsx` inside the *src* folder.
-
-## Environment
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 ## License
 Use it as you wish, but try not to forget where it come from. 👍🏿
