@@ -6,7 +6,7 @@ import Cursor from './cursor'
 
 const rand = (start, end) => Math.round(Math.random() * (end - start) + start)
 
-const String = ({ text = "", style = {}, nth, parentQueue, parentDispatch }) => {
+export const String = ({ text = "", style = {}, nth, parentQueue, parentDispatch }) => {
     const loop = useRef(null)
     const [str, setStr] = useState('')
     const len = text.length
@@ -56,7 +56,7 @@ const reducer = (queue, action) => {
     }
 }
 
-const Tag = ({
+export const Tag = ({
     tagName,
     children = [],
     open,
@@ -128,5 +128,3 @@ const Tag = ({
         </>
     )
 }
-
-export { Tag, String }
