@@ -43,7 +43,7 @@
 }
 
 .hwe.tag--select * {
-    color: var(--select-color !important);
+    color: var(--select-color);
 }
 
 .hwe.tag--close {
