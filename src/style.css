@@ -39,11 +39,11 @@
 }
 
 .hwe.tag--select {
-    background: var(--select-background-color);
+    background: var(--select-background-color) !important;
 }
 
 .hwe.tag--select * {
-    color: var(--select-color);
+    color: var(--select-color) !important;
 }
 
 .hwe.tag--close {
