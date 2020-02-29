@@ -71,7 +71,7 @@ So the end result will look like this. ( *no animation* )
 For a full demo with animtions, try this [CodeSandBox](https://codesandbox.io/s/react-html-writer-cyxe8?codemirror=1&fontsize=14&hidenavigation=1&module=%2Fsrc%2Fdemo.js&theme=dark) or use the `demo.jsx` inside the *src* folder.
 
 ## Todolist
-* [ ] Create or choose a theme by default for each component (color, font, size, ...)
+* [x] Create or choose a theme by default for each component (color, font, size, ...)
 * [ ] Add a duration setting
 * [ ] Add a timeline
 * [ ] Add @types
