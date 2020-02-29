@@ -12,21 +12,43 @@ $ npm i -S react-html-writer
 `<Tag></Tag>`
 
 As a normal HTML tag, you can add any child element or string as a *Tag* or *String* component.
-| Properties | Type    | Description                                                                       |
-| ---------- | ------- | --------------------------------------------------------------------------------- |
-| tagName    | String  | Define the tagname (*div, span, ...*)                                             |
-| attr       | Object  | Add attributes to your tags ( *These attributes do not affect child components* ) |
-| open       | Boolean | Open de tags when the writing is finished                                         |
-| loop       | Boolean | Loop the animation                                                                |
+| Propertie | Type    | Description                                                                       |
+| --------- | ------- | --------------------------------------------------------------------------------- |
+| tagName   | String  | Define the tagname (*div, span, ...*)                                             |
+| attr      | Object  | Add attributes to your tags ( *These attributes do not affect child components* ) |
+| open      | Boolean | Open de tags when the writing is finished                                         |
+| loop      | Boolean | Loop the animation                                                                |
 
 ### String
 `<String />`
 
 This component is only used to write **strings**, so you cannot specify any string if not through the `text` property.
-| Properties | Type   | Description                                                               |
-| ---------- | ------ | ------------------------------------------------------------------------- |
-| text       | String | Define the string to write                                                |
-| style      | Object | Style the defined text ( *this property will not appear during writing* ) |
+| Propertie | Type   | Description                                                               |
+| --------- | ------ | ------------------------------------------------------------------------- |
+| text      | String | Define the string to write                                                |
+| style     | Object | Style the defined text ( *this property will not appear during writing* ) |
+
+## Styling
+You can change the color of each part of your *Tags*. *Strings* can already be styled via the `style` propertie but you should better use it for small individual changes 👍🏿.
+
+Both components uses an `.hwe` ("**H**tml **W**riter **E**lement") CSS class to style the content.
+
+You can use CSS3 variables to change colors, sizes, and fonts.
+
+| Variable                  | Description                                               |
+| ------------------------- | --------------------------------------------------------- |
+| --cursor-color            | the cursor color                                          |
+| --string-color            | the string color                                          |
+| --tag-hook-color          | the hooks color, so the greater and minus than ("<", ">") |
+| --tag-name-color          | the tag names color                                       |
+| --attr-name-color         | the attributes name color                                 |
+| --attr-symbol-color       | the symbols color, the "="symbol basically                |
+| --attr-value-color        | the attributes value color                                |
+| --select-color            | the selection color                                       |
+| --select-background-color | the background selection color                            |
+| --font-size               | the font size                                             |
+| --font-family             | the font                                                  |
+| --tag-tabsize             | the tabulation size on indentation                        |
 
 ## Usage
 A simple usage with a simple **HelloWorld**.
