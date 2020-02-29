@@ -11,7 +11,7 @@ const Cursor = ({ blinkDep = undefined, display = false }) => {
         }
     }, [blinkDep])
 
-    return display && <span className={`cursor${ bool ? ' blink' : '' }`}>&#8205;</span>
+    return display && <span className={`hwe cursor ${ bool ? 'cursor--blink' : '' }`}>&#8205;</span>
 }
 
 export default Cursor

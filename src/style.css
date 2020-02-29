@@ -1,0 +1,103 @@
+@import url("https://fonts.googleapis.com/css?family=Source+Code+Pro&display=swap");
+
+.hwe {
+    --select-background-color: rgb(84, 95, 255);
+    --select-color: white;
+    --cursor-color: white;
+    --string-color: white;
+    --tag-hook-color: rgb(200, 200, 200);
+    --tag-name-color: #d34949;
+    --attr-name-color: #8cd673;
+    --attr-symbol-color: rgb(200, 200, 200);
+    --attr-value-color: #f9c962;
+
+    --font-family: "Source Code Pro", monospace;
+    --font-size: 30px;
+    --tag-tabsize: 50px;
+
+    font-family: var(--font-family);
+    font-size: var(--font-size);
+}
+
+.hwe pre {
+    margin: 0;
+    white-space: pre-wrap;
+}
+
+.hwe span {
+    margin: 0;
+    white-space: pre-wrap;
+}
+
+.hwe.string {
+    color: var(--string-color);
+}
+
+.hwe.tag {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.hwe.tag--select {
+    background: var(--select-background-color);
+}
+
+.hwe.tag--select * {
+    color: var(--select-color !important);
+}
+
+.hwe.tag--close {
+    flex-direction: row;
+}
+
+.hwe.tag--close>.content {
+    display: flex;
+}
+
+.hwe.tag--open {
+    flex-direction: column;
+}
+
+.hwe.tag--open>.content {
+    margin-left: var(--tag-tabsize);
+}
+
+.hwe.cursor {
+    border-left: solid var(--cursor-color);
+}
+
+.hwe.cursor--blink {
+    animation: clignot 0.5s linear infinite alternate;
+}
+
+.hwe.open-tag__hook,
+.hwe.close-tag__hook {
+    color: var(--tag-hook-color);
+}
+
+.hwe.open-tag__name,
+.hwe.close-tag__name {
+    color: var(--tag-name-color);
+}
+
+.hwe.tag-attr__name {
+    color: var(--attr-name-color);
+}
+
+.hwe.tag-attr__symbol {
+    color: var(--attr-symbol-color);
+}
+
+.hwe.tag-attr__value {
+    color: var(--attr-value-color);
+}
+
+@keyframes clignot {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}

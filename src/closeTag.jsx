@@ -42,10 +42,10 @@ const CloseTag = ({ tagName, queue, dispatch, shouldOpen }) => {
     }, [queue])
 
     return (
-        <div className="html-writer-element close-tag">
-            <span className="tag-hook">{str.slice(0, 2)}</span>
-            <span className="tag-name">{str.slice(2, patternTag.length - 1)}</span>
-            <span className="tag-hook">{str[patternTag.length - 1]}</span>
+        <div className="hwe close-tag">
+            <span className="hwe close-tag__hook">{str.slice(0, 2)}</span>
+            <span className="hwe close-tag__name">{str.slice(2, patternTag.length - 1)}</span>
+            <span className="hwe close-tag__hook">{str[patternTag.length - 1]}</span>
             <Cursor blinkDep={str} display={queue === 1} />
         </div>
     )

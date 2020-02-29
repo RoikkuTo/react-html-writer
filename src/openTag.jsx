@@ -43,11 +43,11 @@ const OpenTag = ({ tagName, queue, dispatch, attr = {} }) => {
     }, [queue, dispatch])
 
     return (
-        <div className="html-writer-element open-tag">
-            <span className="tag-hook">{str.tag[0]}</span>
-            <span className="tag-name">{str.tagName}</span>
+        <div className="hwe open-tag">
+            <span className="hwe open-tag__hook">{str.tag[0]}</span>
+            <span className="hwe open-tag__name">{str.tagName}</span>
             <AttrList char={str.attr} />
-            <span className="tag-hook">{str.tag[1]}</span>
+            <span className="hwe open-tag__hook">{str.tag[1]}</span>
             <Cursor blinkDep={str} display={queue === 0} />
         </div>
     )

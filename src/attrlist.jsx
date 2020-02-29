@@ -18,10 +18,10 @@ const Attr = ({ char }) => {
     useEffect(write, [char])
 
     return (
-        <span className="attr">
-            <span className="name">{str.name}</span>
-            <span className="symbol">{str.symbol}</span>
-            <span className="value">{str.value}</span>
+        <span className="hwe tag-attr">
+            <span className="hwe tag-attr__name">{str.name}</span>
+            <span className="hwe tag-attr__symbol">{str.symbol}</span>
+            <span className="hwe tag-attr__value">{str.value}</span>
         </span>
     )
 }
@@ -37,7 +37,7 @@ const AttrList = ({ char }) => {
         })
     }, [char])
 
-    return <span className="tag-attr-list">{list}</span>
+    return <span>{list}</span>
 }
 
 export default AttrList

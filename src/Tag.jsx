@@ -1,8 +1,9 @@
 import React, { useEffect, useState, useReducer, Children, cloneElement, useRef } from 'react'
-import './style.scss'
 import OpenTag from './openTag'
 import CloseTag from './closeTag'
 import Cursor from './cursor'
+
+import './style.css'
 
 const rand = (start, end) => Math.round(Math.random() * (end - start) + start)
 
@@ -36,7 +37,7 @@ export const String = ({ text = "", style = {}, nth, parentQueue, parentDispatch
     }, [parentQueue])
 
     return (
-        <div className="html-writer-element string" style={style}>
+        <div className="hwe string" style={style}>
             <span>{str}</span>
             <Cursor blinkDep={str} display={parentQueue === nth} />
         </div>
@@ -107,9 +108,9 @@ export const Tag = ({
         <>
             {
                 state.isDisplay ? (
-                    <div className={`html-writer-element HTML-tag${ (state.isOpen ? ' open' : '') + (state.isSelect ? ' select' : '') }`}>
+                    <div className={`hwe tag ${ (state.isOpen ? 'tag--open' : 'tag--close') } ${ (state.isSelect ? 'tag--select' : '') }`}>
                         <OpenTag {...{ tagName, attr, queue, dispatch }} />
-                        <div className="content">
+                        <div className="hwe content">
                             {
                                 Children.map(children, (child, i) => cloneElement(child, {
                                     nth: i + 2,
