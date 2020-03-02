@@ -64,6 +64,8 @@ const HelloWorld = () => (
 
 export default HelloWorld
 ```
+> If want to import the library via the `script` tag in your HTML file, you can also use the `ReactHtmlWriter` global object.
+
 So the end result will look like this. ( *no animation* )
 ```html
 <h1>Hello World !</h1>

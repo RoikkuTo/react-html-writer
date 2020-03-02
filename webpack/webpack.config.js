@@ -7,7 +7,7 @@ const TerserPlugin = require('terser-webpack-plugin')
 module.exports = (env, argv) => {
     let config = {
         entry: {
-            index: './src/demo.jsx'
+            index: './src/demo.js'
         },
         output: {
             filename: '[name].[hash:7].bundle.js',

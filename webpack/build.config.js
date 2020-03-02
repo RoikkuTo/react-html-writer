@@ -1,23 +1,17 @@
 const path = require('path')
-const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const TerserPlugin = require('terser-webpack-plugin')
 
 module.exports = (env, argv) => {
     let config = {
-        entry: {
-            index: './src/index.js'
-        },
+        entry: path.join(__dirname, '../src'),
         output: {
-            filename: '[name].js',
+            filename: 'index.js',
             path: path.join(__dirname, '../build'),
-            chunkFilename: '[name].[chunkHash:7].chunk.js',
+            chunkFilename: 'index.chunk.js',
+            library: 'reactHtmlWriter',
+            libraryTarget: 'umd',
+            umdNamedDefine: true
         },
-        plugins: [
-            new CleanWebpackPlugin({
-                verbose: true,
-                dry: false
-            })
-        ],
         module: {
             rules: [{
                 test: [/\.m?js$/, /\.jsx$/],
@@ -45,7 +39,14 @@ module.exports = (env, argv) => {
         },
         optimization: {
             minimize: true,
-            minimizer: [new TerserPlugin()]
+            minimizer: [new TerserPlugin({
+                terserOptions: {
+                    keep_fnames: true
+                }
+            })]
+        },
+        externals: {
+            react: 'react'
         }
     }
 
