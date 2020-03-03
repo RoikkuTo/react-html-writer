@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css?family=Source+Code+Pro&display=swap");
 
-:root {
+html {
     --cursor-color: white;
     --string-color: white;
     --tag-hook-color: rgb(200, 200, 200);
