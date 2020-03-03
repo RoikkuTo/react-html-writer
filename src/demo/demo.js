@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { Tag, String } from './Tag'
+import { Tag, String } from '../../build/index'
 
 import './demo.css'
 

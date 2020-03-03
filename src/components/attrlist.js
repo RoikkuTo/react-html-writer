@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react'
 
+import styles from '../style/style.css'
+
 const Attr = ({ char }) => {
     const [str, setStr] = useState({
         name: '',
@@ -18,10 +20,10 @@ const Attr = ({ char }) => {
     useEffect(write, [char])
 
     return (
-        <span className="hwe tag-attr">
-            <span className="hwe tag-attr__name">{str.name}</span>
-            <span className="hwe tag-attr__symbol">{str.symbol}</span>
-            <span className="hwe tag-attr__value">{str.value}</span>
+        <span className={`${ styles.hwe } ${ styles['tag-attr'] }`}>
+            <span className={`${ styles.hwe } ${ styles['tag-attr__name'] }`}>{str.name}</span>
+            <span className={`${ styles.hwe } ${ styles['tag-attr__symbol'] }`}>{str.symbol}</span>
+            <span className={`${ styles.hwe } ${ styles['tag-attr__value'] }`}>{str.value}</span>
         </span>
     )
 }

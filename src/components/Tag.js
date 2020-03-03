@@ -3,7 +3,8 @@ import OpenTag from './openTag'
 import CloseTag from './closeTag'
 import Cursor from './cursor'
 
-import './style.css'
+import styles from '../style/style.css'
+console.log(styles)
 
 const rand = (start, end) => Math.round(Math.random() * (end - start) + start)
 
@@ -37,7 +38,7 @@ export const String = ({ text = "", style = {}, nth, parentQueue, parentDispatch
     }, [parentQueue])
 
     return (
-        <div className="hwe string" style={style}>
+        <div className={`${ styles.hwe } ${ styles.string }`} style={style}>
             <span>{str}</span>
             <Cursor blinkDep={str} display={parentQueue === nth} />
         </div>
@@ -108,9 +109,9 @@ export const Tag = ({
         <>
             {
                 state.isDisplay ? (
-                    <div className={`hwe tag ${ (state.isOpen ? 'tag--open' : 'tag--close') } ${ (state.isSelect ? 'tag--select' : '') }`}>
+                    <div className={`${ styles.hwe } ${ styles.tag } ${ (state.isOpen ? styles['tag--open'] : styles['tag--close']) } ${ (state.isSelect ? styles['tag--select'] : '') }`}>
                         <OpenTag {...{ tagName, attr, queue, dispatch }} />
-                        <div className="hwe content">
+                        <div className={`${ styles.hwe } ${ styles.content }`}>
                             {
                                 Children.map(children, (child, i) => cloneElement(child, {
                                     nth: i + 2,

@@ -3,6 +3,8 @@ import useParseData from './useParseData'
 import AttrList from './attrlist'
 import Cursor from './cursor'
 
+import styles from '../style/style.css'
+
 const rand = (start, end) => Math.round(Math.random() * (end - start) + start)
 
 const OpenTag = ({ tagName, queue, dispatch, attr = {} }) => {
@@ -43,11 +45,11 @@ const OpenTag = ({ tagName, queue, dispatch, attr = {} }) => {
     }, [queue, dispatch])
 
     return (
-        <div className="hwe open-tag">
-            <span className="hwe open-tag__hook">{str.tag[0]}</span>
-            <span className="hwe open-tag__name">{str.tagName}</span>
+        <div className={`${ styles.hwe } ${styles['open-tag'] }`}>
+            <span className={`${ styles.hwe } ${styles['open-tag__hook'] }`}>{str.tag[0]}</span>
+            <span className={`${ styles.hwe } ${styles['open-tag__name'] }`}>{str.tagName}</span>
             <AttrList char={str.attr} />
-            <span className="hwe open-tag__hook">{str.tag[1]}</span>
+            <span className={`${ styles.hwe } ${styles['open-tag__hook'] }`}>{str.tag[1]}</span>
             <Cursor blinkDep={str} display={queue === 0} />
         </div>
     )

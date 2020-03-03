@@ -1,4 +1,5 @@
 const path = require('path')
+// const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const TerserPlugin = require('terser-webpack-plugin')
 
 module.exports = (env, argv) => {
@@ -12,6 +13,11 @@ module.exports = (env, argv) => {
             libraryTarget: 'umd',
             umdNamedDefine: true
         },
+        /* plugins: [
+            new MiniCssExtractPlugin({
+                filename: 'index.css'
+            })
+        ], */
         module: {
             rules: [{
                 test: [/\.m?js$/, /\.jsx$/],
@@ -24,26 +30,38 @@ module.exports = (env, argv) => {
             {
                 test: /\.css$/,
                 use: [
-                    "style-loader",
-                    "css-loader"
-                ],
+                    'style-loader'/* MiniCssExtractPlugin.loader */,
+                    {
+                        loader: "css-loader",
+                        options: {
+                            modules: true,
+                        }
+                    }
+                ]
             },
             {
                 test: /\.scss$/,
                 use: [
-                    "style-loader",
+                    'style-loader'/* MiniCssExtractPlugin.loader */,
                     "css-loader",
-                    "sass-loader"
+                    {
+                        loader: "sass-loader",
+                        options: {
+                            modules: true,
+                        }
+                    }
                 ]
             }]
         },
         optimization: {
             minimize: true,
-            minimizer: [new TerserPlugin({
-                terserOptions: {
-                    keep_fnames: true
-                }
-            })]
+            minimizer: [
+                new TerserPlugin({
+                    terserOptions: {
+                        keep_fnames: true
+                    }
+                })
+            ]
         },
         externals: {
             react: 'react'

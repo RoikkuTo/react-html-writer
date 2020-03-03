@@ -31,24 +31,24 @@ This component is only used to write **strings**, so you cannot specify any stri
 ## Styling
 You can change the color of each part of your *Tags*. *Strings* can already be styled via the `style` propertie but you should better use it for small individual changes 👍🏿.
 
-Both components uses an `.hwe` ("**H**tml **W**riter **E**lement") CSS class to style the content.
+Both components uses CSS3 variables set at the `:root` CSS pseudo-class, to style the content.
 
-You can use CSS3 variables to change colors, sizes, and fonts.
+You can re-use those variables to change colors, sizes, and fonts.
 
-| Variable                  | Description                                               |
-| ------------------------- | --------------------------------------------------------- |
-| --cursor-color            | the cursor color                                          |
-| --string-color            | the string color                                          |
-| --tag-hook-color          | the hooks color, so the greater and minus than ("<", ">") |
-| --tag-name-color          | the tag names color                                       |
-| --attr-name-color         | the attributes name color                                 |
-| --attr-symbol-color       | the symbols color, the "="symbol basically                |
-| --attr-value-color        | the attributes value color                                |
-| --select-color            | the selection color                                       |
-| --select-background-color | the background selection color                            |
-| --font-size               | the font size                                             |
-| --font-family             | the font                                                  |
-| --tag-tabsize             | the tabulation size on indentation                        |
+| Variable                      | Description                                               |
+| ----------------------------- | --------------------------------------------------------- |
+| --hwe-cursor-color            | the cursor color                                          |
+| --hwe-string-color            | the string color                                          |
+| --hwe-tag-hook-color          | the hooks color, so the greater and minus than ("<", ">") |
+| --hwe-tag-name-color          | the tag names color                                       |
+| --hwe-attr-name-color         | the attributes name color                                 |
+| --hwe-attr-symbol-color       | the symbols color, the "="symbol basically                |
+| --hwe-attr-value-color        | the attributes value color                                |
+| --hwe-select-color            | the selection color                                       |
+| --hwe-select-background-color | the background selection color                            |
+| --hwe-font-size               | the font size                                             |
+| --hwe-font-family             | the font                                                  |
+| --hwe-tag-tabsize             | the tabulation size on indentation                        |
 
 ## Usage
 A simple usage with a simple **HelloWorld**.

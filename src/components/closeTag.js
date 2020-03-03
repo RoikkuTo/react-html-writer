@@ -1,6 +1,8 @@
 import React, { useEffect, useState, useRef } from "react"
 import Cursor from "./cursor"
 
+import styles from '../style/style.css'
+
 const rand = (start, end) => Math.round(Math.random() * (end - start) + start)
 
 const CloseTag = ({ tagName, queue, dispatch, shouldOpen }) => {
@@ -42,10 +44,10 @@ const CloseTag = ({ tagName, queue, dispatch, shouldOpen }) => {
     }, [queue])
 
     return (
-        <div className="hwe close-tag">
-            <span className="hwe close-tag__hook">{str.slice(0, 2)}</span>
-            <span className="hwe close-tag__name">{str.slice(2, patternTag.length - 1)}</span>
-            <span className="hwe close-tag__hook">{str[patternTag.length - 1]}</span>
+        <div className={`${ styles.hwe } ${ styles['close-tag'] }`}>
+            <span className={`${ styles.hwe } ${styles['close-tag__hook'] }`}>{str.slice(0, 2)}</span>
+            <span className={`${ styles.hwe } ${styles['close-tag__name'] }`}>{str.slice(2, patternTag.length - 1)}</span>
+            <span className={`${ styles.hwe } ${styles['close-tag__hook'] }`}>{str[patternTag.length - 1]}</span>
             <Cursor blinkDep={str} display={queue === 1} />
         </div>
     )

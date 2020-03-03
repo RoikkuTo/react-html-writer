@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react'
 
+import styles from '../style/style.css'
+
 const Cursor = ({ blinkDep = undefined, display = false }) => {
     const [bool, setBool] = useState(false)
 
@@ -11,7 +13,7 @@ const Cursor = ({ blinkDep = undefined, display = false }) => {
         }
     }, [blinkDep])
 
-    return display && <span className={`hwe cursor ${ bool ? 'cursor--blink' : '' }`}>&#8205;</span>
+    return display && <span className={`${ styles.hwe } ${ styles.cursor } ${ bool ? styles['cursor--blink'] : '' }`}>&#8205;</span>
 }
 
 export default Cursor

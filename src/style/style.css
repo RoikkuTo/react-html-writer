@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css?family=Source+Code+Pro&display=swap");
 
-.hwe {
+:root {
     --cursor-color: white;
     --string-color: white;
     --tag-hook-color: rgb(200, 200, 200);
@@ -14,7 +14,9 @@
     --font-size: 30px;
     --tag-tabsize: 50px;
     --font-family: "Source Code Pro", monospace;
+}
 
+.hwe {
     font-family: var(--font-family);
     font-size: var(--font-size);
 }
