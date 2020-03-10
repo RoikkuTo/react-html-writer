@@ -17,8 +17,8 @@ html {
 }
 
 .hwe {
-    font-family: var(--font-family);
-    font-size: var(--font-size);
+    font-family: var(--hwe-font-family);
+    font-size: var(--hwe-font-size);
 }
 
 .hwe pre {
@@ -32,7 +32,7 @@ html {
 }
 
 .hwe.string {
-    color: var(--string-color);
+    color: var(--hwe-string-color);
 }
 
 .hwe.tag {
@@ -41,11 +41,11 @@ html {
 }
 
 .hwe.tag--select {
-    background: var(--select-background-color) !important;
+    background: var(--hwe-select-background-color) !important;
 }
 
 .hwe.tag--select * {
-    color: var(--select-color) !important;
+    color: var(--hwe-select-color) !important;
 }
 
 .hwe.tag--close {
@@ -61,11 +61,11 @@ html {
 }
 
 .hwe.tag--open>.content {
-    margin-left: var(--tag-tabsize);
+    margin-left: var(--hwe-tag-tabsize);
 }
 
 .hwe.cursor {
-    border-left: solid var(--cursor-color);
+    border-left: solid var(--hwe-cursor-color);
 }
 
 .hwe.cursor--blink {
@@ -74,24 +74,24 @@ html {
 
 .hwe.open-tag__hook,
 .hwe.close-tag__hook {
-    color: var(--tag-hook-color);
+    color: var(--hwe-tag-hook-color);
 }
 
 .hwe.open-tag__name,
 .hwe.close-tag__name {
-    color: var(--tag-name-color);
+    color: var(--hwe-tag-name-color);
 }
 
 .hwe.tag-attr__name {
-    color: var(--attr-name-color);
+    color: var(--hwe-attr-name-color);
 }
 
 .hwe.tag-attr__symbol {
-    color: var(--attr-symbol-color);
+    color: var(--hwe-attr-symbol-color);
 }
 
 .hwe.tag-attr__value {
-    color: var(--attr-value-color);
+    color: var(--hwe-attr-value-color);
 }
 
 @keyframes clignot {
