@@ -4,7 +4,6 @@ import CloseTag from './closeTag'
 import Cursor from './cursor'
 
 import styles from '../style/style.css'
-console.log(styles)
 
 const rand = (start, end) => Math.round(Math.random() * (end - start) + start)
 

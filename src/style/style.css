@@ -1,19 +1,19 @@
 @import url("https://fonts.googleapis.com/css?family=Source+Code+Pro&display=swap");
 
 html {
-    --cursor-color: white;
-    --string-color: white;
-    --tag-hook-color: rgb(200, 200, 200);
-    --tag-name-color: #d34949;
-    --attr-name-color: #8cd673;
-    --attr-symbol-color: rgb(200, 200, 200);
-    --attr-value-color: #f9c962;
-    --select-color: white;
-    --select-background-color: rgb(84, 95, 255);
+    --hwe-cursor-color: white;
+    --hwe-string-color: white;
+    --hwe-tag-hook-color: rgb(200, 200, 200);
+    --hwe-tag-name-color: #d34949;
+    --hwe-attr-name-color: #8cd673;
+    --hwe-attr-symbol-color: rgb(200, 200, 200);
+    --hwe-attr-value-color: #f9c962;
+    --hwe-select-color: white;
+    --hwe-select-background-color: rgb(84, 95, 255);
 
-    --font-size: 30px;
-    --tag-tabsize: 50px;
-    --font-family: "Source Code Pro", monospace;
+    --hwe-font-size: 30px;
+    --hwe-tag-tabsize: 50px;
+    --hwe-font-family: "Source Code Pro", monospace;
 }
 
 .hwe {
