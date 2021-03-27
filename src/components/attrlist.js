@@ -1,45 +1,89 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useMemo, useRef, useState } from 'react'
 
 import styles from '../style/style.css'
 
-const Attr = ({ char }) => {
-    const [str, setStr] = useState({
-        name: '',
-        value: '',
-        symbol: ''
-    })
+const Attr = ({ currGroup, cursor, idx, type, value }) => {
+	const str = useRef({
+		name: '',
+		value: '',
+		symbol: ''
+	})
+	const t = useRef('')
 
-    const write = () => {
-        setStr(prev => ({
-            name: prev.name + (char[2] === 'attrName' ? char[0] : ''),
-            value: prev.value + (char[2] === 'attrValue' ? char[0] : ''),
-            symbol: prev.symbol + (char[2] === 'attrSymbol' ? char[0] : '')
-        }))
-    }
+	useEffect(() => {
+		if (currGroup === idx) {
+			const prev = str.current
+			str.current = {
+				attr: prev.attr + (type === 'attr' ? value[cursor] : ''),
+				equal: prev.symbol + (type === 'equal' ? value[cursor] : ''),
+				value: prev.value + (type === 'value' ? value[cursor] : '')
+			}
+		}
+	}, [currGroup, cursor, idx])
 
-    useEffect(write, [char])
-
-    return (
-        <span className={`${ styles.hwe } ${ styles['tag-attr'] }`}>
-            <span className={`${ styles.hwe } ${ styles['tag-attr__name'] }`}>{str.name}</span>
-            <span className={`${ styles.hwe } ${ styles['tag-attr__symbol'] }`}>{str.symbol}</span>
-            <span className={`${ styles.hwe } ${ styles['tag-attr__value'] }`}>{str.value}</span>
-        </span>
-    )
+	return (
+		<span className={`${styles.hwe} ${styles['tag-attr']}`}>
+			<span className={`${styles.hwe} ${styles['tag-attr__name']}`}>{str.current.name}</span>
+			<span className={`${styles.hwe} ${styles['tag-attr__symbol']}`}>{str.current.symbol}</span>
+			<span className={`${styles.hwe} ${styles['tag-attr__value']}`}>{str.current.value}</span>
+		</span>
+	)
 }
 
-const AttrList = ({ char }) => {
-    const [list, setList] = useState([])
+const AttrList = ({ pencil, data }) => {
+	// const [list, setList] = useState([])
 
-    useEffect(() => {
-        setList(prev => {
-            const indexChar = char[3]
-            if (char) prev[indexChar] = <Attr key={indexChar} char={char} />
-            return prev
-        })
-    }, [char])
+	// useEffect(() => {
+	// 	setList(prev => {
+	// 		const indexChar = char[3]
+	// 		if (char) prev[indexChar] = <Attr key={indexChar} char={char} />
+	// 		return prev
+	// 	})
+	// }, [char])
 
-    return <span>{list}</span>
+	// const res = []
+	// data.forEach((group, i) => group.type === 'attr' && res.push(data.slice(i, i + 3)))
+	// <Attr key={Math.random()} currGroup={currGroup} cursor={cursor} idx={i + 2} {...group} />
+
+	const tab = useMemo(() => data.map((elm, i) => {
+		switch (elm.type) {
+			case 'attr': return {
+				...elm,
+				idx: i + 2,
+				str: '',
+				component(group, cursor) {
+					if (group === this.idx) this.str += this.value[cursor] || ''
+					return <span key={this.value + i} className={`${styles.hwe} ${styles['tag-attr__name']}`}>{this.str}</span>
+				}
+			}
+			case 'equal': return {
+				...elm,
+				idx: i + 2,
+				str: '',
+				component(group, cursor) {
+					if (group === this.idx) this.str += this.value[cursor] || ''
+					return <span key={this.value + i} className={`${styles.hwe} ${styles['tag-attr__symbol']}`}>{this.str}</span>
+				}
+			}
+			case 'value': return {
+				...elm,
+				idx: i + 2,
+				str: '',
+				component(group, cursor) {
+					if (group === this.idx) this.str += this.value[cursor] || ''
+					return <span key={this.value + i} className={`${styles.hwe} ${styles['tag-attr__value']}`}>{this.str}</span>
+				}
+			}
+		}
+	}), [])
+
+	const { group, cursor } = pencil
+
+	return (
+		<span>
+			{tab.map(elm => elm.component(group, cursor))}
+		</span>
+	)
 }
 
 export default AttrList
