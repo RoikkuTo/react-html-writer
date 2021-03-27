@@ -22,6 +22,9 @@
 	},
 	"author": "Loïc Etifier",
 	"license": "MIT",
+	"files": [
+		"build"
+	],
 	"bugs": {
 		"url": "https://github.com/RoikkuTo/react-html-writer/issues"
 	},
