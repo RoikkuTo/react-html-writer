@@ -1,10 +1,10 @@
 # React HTML Writer
-Here are some components which will allow you to animate HTML writing on your application. I will add functionalities and fixes progressively 😊.
+Here are some components which will allow you to animate HTML writing on your application.
 
 ## Installation
-Via npm
+
 ```bash
-$ npm i -S react-html-writer
+$ npm i react-html-writer
 ```
 
 ## Components
@@ -12,6 +12,7 @@ $ npm i -S react-html-writer
 `<Tag></Tag>`
 
 As a normal HTML tag, you can add any child element or string as a *Tag* or *String* component.
+
 | Propertie | Type    | Description                                                                       |
 | --------- | ------- | --------------------------------------------------------------------------------- |
 | tagName   | String  | Define the tagname (*div, span, ...*)                                             |
@@ -22,18 +23,19 @@ As a normal HTML tag, you can add any child element or string as a *Tag* or *Str
 ### String
 `<String />`
 
-This component is only used to write **strings**, so you cannot specify any string if not through the `text` property.
+This component is only used to write **strings**, so you cannot specify any string if not through the `text` property. The *String* component is complitely independent from the *Tag* component.
+
 | Propertie | Type   | Description                                                               |
 | --------- | ------ | ------------------------------------------------------------------------- |
 | text      | String | Define the string to write                                                |
 | style     | Object | Style the defined text ( *this property will not appear during writing* ) |
 
 ## Styling
-You can change the color of each part of your *Tags*. *Strings* can already be styled via the `style` propertie but you should better use it for small individual changes 👍🏿.
+You can change the color of each part of your *Tags* and *Strings*. *Strings* can also be styled via the `style` property from react.
 
 Both components uses CSS3 variables set at the `:root` CSS pseudo-class, to style the content.
 
-You can re-use those variables to change colors, sizes, and fonts.
+You can use those variables to change colors, sizes, and fonts.
 
 | Variable                      | Description                                               |
 | ----------------------------- | --------------------------------------------------------- |
@@ -64,13 +66,13 @@ const HelloWorld = () => (
 
 export default HelloWorld
 ```
-> If want to import the library via the `script` tag in your HTML file, you can also use the `ReactHtmlWriter` global object.
+> If you want to import the library via the `script` tag in your HTML file, you can by using the `ReactHtmlWriter` global object.
 
 So the end result will look like this. ( *no animation* )
 ```html
 <h1>Hello World !</h1>
 ```
-For a full demo with animtions, try this [CodeSandBox](https://codesandbox.io/s/react-html-writer-cyxe8?codemirror=1&fontsize=14&hidenavigation=1&module=%2Fsrc%2Fdemo.js&theme=dark) or use the `demo.jsx` inside the *src* folder.
+For a full demo with animtions, try this [CodeSandBox](https://codesandbox.io/s/react-html-writer-cyxe8?codemirror=1&fontsize=14&hidenavigation=1&module=%2Fsrc%2Fdemo.js&theme=dark) or use the `demo.js` inside the *src/demo* folder.
 
 ## Todolist
 * [x] Create or choose a theme by default for each component (color, font, size, ...)
