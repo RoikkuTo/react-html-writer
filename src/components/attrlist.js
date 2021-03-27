@@ -45,8 +45,8 @@ const AttrList = ({ pencil, data }) => {
 	// const res = []
 	// data.forEach((group, i) => group.type === 'attr' && res.push(data.slice(i, i + 3)))
 	// <Attr key={Math.random()} currGroup={currGroup} cursor={cursor} idx={i + 2} {...group} />
+	const [attrContent, setAttrContent] = useState([])
 	const attr = useRef([])
-	const prevCursor = useRef(null)
 
 	const { group, cursor } = pencil
 
@@ -58,7 +58,7 @@ const AttrList = ({ pencil, data }) => {
 					idx: i + 2,
 					str: '',
 					component(group, cursor) {
-						if (group === this.idx && cursor !== prevCursor.current) this.str += this.value[cursor] || ''
+						if (group === this.idx) this.str += this.value[cursor] || ''
 						return <span key={this.value + i} className={`${styles.hwe} ${styles['tag-attr__name']}`}>{this.str}</span>
 					}
 				}
@@ -67,7 +67,7 @@ const AttrList = ({ pencil, data }) => {
 					idx: i + 2,
 					str: '',
 					component(group, cursor) {
-						if (group === this.idx && cursor !== prevCursor.current) this.str += this.value[cursor] || ''
+						if (group === this.idx) this.str += this.value[cursor] || ''
 						return <span key={this.value + i} className={`${styles.hwe} ${styles['tag-attr__symbol']}`}>{this.str}</span>
 					}
 				}
@@ -76,20 +76,19 @@ const AttrList = ({ pencil, data }) => {
 					idx: i + 2,
 					str: '',
 					component(group, cursor) {
-						if (group === this.idx && cursor !== prevCursor.current) this.str += this.value[cursor] || ''
+						if (group === this.idx) this.str += this.value[cursor] || ''
 						return <span key={this.value + i} className={`${styles.hwe} ${styles['tag-attr__value']}`}>{this.str}</span>
 					}
 				}
 			}
-			prevCursor.current = cursor
 		})
-	}, [])
+	}, [data])
 
-	return (
-		<span>
-			{attr.current.map(elm => elm.component(group, cursor))}
-		</span>
-	)
+	useEffect(() => {
+		setAttrContent(attr.current.map(elm => elm.component(group, cursor)))
+	}, [pencil, setAttrContent])
+
+	return <span>{attrContent}</span>
 }
 
 export default AttrList

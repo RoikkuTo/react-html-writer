@@ -7,11 +7,11 @@ import styles from '../style/style.css'
 
 const rand = (start, end) => Math.round(Math.random() * (end - start) + start)
 
-export const String = ({ text = "", style = {}, nth, parentQueue, parentDispatch }) => {
+export const String = ({ text = "", style = {}, fakeThink = rand(95, 175), nth, parentQueue, parentDispatch }) => {
 	const timeline = useRef(null)
 	const globalRefs = useRef({
 		len: text.length,
-		delay: 485,
+		delay: fakeThink,
 		cursor: 0,
 		prevent: false
 	})
@@ -69,6 +69,7 @@ export const Tag = ({
 	nth,
 	attr = {},
 	loop,
+	fakeThink = rand(95, 175),
 	parentQueue,
 	parentDispatch
 }) => {
@@ -80,16 +81,18 @@ export const Tag = ({
 		isDisplay: true
 	})
 
+	const shouldOpen = useCallback(() => open && setState(prev => ({ ...prev, isOpen: true })), [setState])
+
 	useEffect(() => {
-		parentQueue === nth && dispatch({ type: 'INCREMENT' })
+		parentQueue === nth && setTimeout(() => dispatch({ type: 'INCREMENT' }), fakeThink)
 	}, [parentQueue, nth])
 
 	useEffect(() => {
 		if (parentDispatch && nth !== undefined && queue === endOfQueue.current) {
-			parentDispatch({ type: 'INCREMENT' })
+			setTimeout(() => parentDispatch({ type: 'INCREMENT' }), rand(95, 175))
 		}
 
-		if (queue === endOfQueue.current && loop !== undefined) {
+		if (queue === endOfQueue.current && !!loop) {
 			setTimeout(() => {
 				setState(prev => ({ ...prev, isSelect: true }))
 
@@ -121,19 +124,17 @@ export const Tag = ({
 					<div className={`${styles.hwe} ${styles.content}`}>
 						{
 							Children.map(children, (child, i) => cloneElement(child, {
+								fakeThink: open ? rand(375, 485) : rand(175, 215),
 								nth: i + 2,
 								parentQueue: queue,
 								parentDispatch: dispatch
 							}))
 						}
 					</div>
-					<OCTag
-						{...{ tagName, queue, dispatch }}
-						shouldOpen={[open, () => setState(prev => ({ ...prev, isOpen: true }))]}
-					/>
+					<OCTag {...{ tagName, queue, dispatch }} shouldOpen={shouldOpen} />
 				</div>
 			}
-			{/* <Cursor display={parentQueue === nth && (queue === -1 || queue === endOfQueue.current)} /> */}
+			<Cursor display={parentQueue === nth && queue === -1} />
 		</>
 	)
 }
