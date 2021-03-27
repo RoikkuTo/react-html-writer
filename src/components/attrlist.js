@@ -3,15 +3,16 @@ import React, { useEffect, useMemo, useRef, useState } from 'react'
 import styles from '../style/style.css'
 
 const Attr = ({ currGroup, cursor, idx, type, value }) => {
+	const prevCursor = useRef(null)
 	const str = useRef({
 		name: '',
 		value: '',
 		symbol: ''
 	})
-	const t = useRef('')
 
 	useEffect(() => {
-		if (currGroup === idx) {
+		if (currGroup === idx && cursor !== prevCursor.current) {
+			prevCursor.current = cursor
 			const prev = str.current
 			str.current = {
 				attr: prev.attr + (type === 'attr' ? value[cursor] : ''),

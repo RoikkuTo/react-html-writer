@@ -68,7 +68,7 @@ export default ({ tagName, dispatch, attr = null, queue, opening, shouldOpen }) 
 				timeline.current.delete()
 				setTimeout(() => {
 					dispatch({ type: 'INCREMENT' })
-					setTimeout(() => shouldOpen?.[0] && shouldOpen[1](), rand(90, 150))
+					setTimeout(() => shouldOpen?.[0] && shouldOpen[1](), rand(150, 200))
 				}, rand(150, 200))
 			} else {
 				setTimeout(() => dispatch({ type: 'INCREMENT' }), rand(150, 200))
