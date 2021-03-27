@@ -1,6 +1,6 @@
 {
 	"name": "react-html-writer",
-	"version": "1.4.4",
+	"version": "1.4.6",
 	"description": "Some react components to animate HTML code writing.",
 	"module": "build/index.js",
 	"scripts": {

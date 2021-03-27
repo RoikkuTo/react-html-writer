@@ -45,13 +45,13 @@ const AttrList = ({ pencil, data }) => {
 	// const res = []
 	// data.forEach((group, i) => group.type === 'attr' && res.push(data.slice(i, i + 3)))
 	// <Attr key={Math.random()} currGroup={currGroup} cursor={cursor} idx={i + 2} {...group} />
-	const [attr, setAttr] = useState([])
+	const attr = useRef([])
 	const prevCursor = useRef(null)
 
 	const { group, cursor } = pencil
 
 	useEffect(() => {
-		setAttr(data.map((elm, i) => {
+		attr.current = data.map((elm, i) => {
 			switch (elm.type) {
 				case 'attr': return {
 					...elm,
@@ -82,12 +82,12 @@ const AttrList = ({ pencil, data }) => {
 				}
 			}
 			prevCursor.current = cursor
-		}))
-	}, [data, setAttr])
+		})
+	}, [])
 
 	return (
 		<span>
-			{attr.map(elm => elm.component(group, cursor))}
+			{attr.current.map(elm => elm.component(group, cursor))}
 		</span>
 	)
 }
