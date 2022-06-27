@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css?family=Source+Code+Pro&display=swap');
+
+html {
+	--hwe-cursor-color: white;
+	--hwe-string-color: white;
+	--hwe-tag-hook-color: rgb(200, 200, 200);
+	--hwe-tag-name-color: #d34949;
+	--hwe-attr-name-color: #8cd673;
+	--hwe-attr-symbol-color: rgb(200, 200, 200);
+	--hwe-attr-value-color: #f9c962;
+	--hwe-select-color: white;
+	--hwe-select-background-color: rgb(84, 95, 255);
+
+	--hwe-font-size: 30px;
+	--hwe-tag-tabsize: 50px;
+	--hwe-font-family: 'Source Code Pro', monospace;
+}
+
+.hwe {
+	font-family: var(--hwe-font-family);
+	font-size: var(--hwe-font-size);
+}
+
+.hwe pre {
+	margin: 0;
+	white-space: pre-wrap;
+}
+
+.hwe span {
+	margin: 0;
+	white-space: pre-wrap;
+}
+
+.hwe.string {
+	color: var(--hwe-string-color);
+}
+
+.hwe.tag {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.hwe.tag--select {
+	background: var(--hwe-select-background-color) !important;
+}
+
+.hwe.tag--select * {
+	color: var(--hwe-select-color) !important;
+}
+
+.hwe.tag--close {
+	flex-direction: row;
+}
+
+.hwe.tag--close > .content {
+	display: flex;
+}
+
+.hwe.tag--open {
+	flex-direction: column;
+}
+
+.hwe.tag--open > .content {
+	margin-left: var(--hwe-tag-tabsize);
+}
+
+.hwe.cursor {
+	border-left: solid var(--hwe-cursor-color);
+}
+
+.hwe.cursor--blink {
+	animation: clignot 0.5s linear infinite alternate;
+}
+
+.hwe.open-tag__hook,
+.hwe.close-tag__hook {
+	color: var(--hwe-tag-hook-color);
+}
+
+.hwe.open-tag__name,
+.hwe.close-tag__name {
+	color: var(--hwe-tag-name-color);
+}
+
+.hwe.tag-attr__name {
+	color: var(--hwe-attr-name-color);
+}
+
+.hwe.tag-attr__symbol {
+	color: var(--hwe-attr-symbol-color);
+}
+
+.hwe.tag-attr__value {
+	color: var(--hwe-attr-value-color);
+}
+
+@keyframes clignot {
+	from {
+		opacity: 0;
+	}
+
+	to {
+		opacity: 1;
+	}
+}
