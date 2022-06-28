@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import AttrList from './Attr/AttrList'
 import usePencil, { ContainerEvents } from '@lib/hooks/usePencil'
-import styles from '@lib/style/style.module.css'
+import { Hook, Name } from '@lib/style/index.style'
 import Cursor from '../Cursor'
 import { rand } from '@lib/utils'
 
@@ -43,11 +43,11 @@ export default function Opening({ name, attr, shouldWrite, shouldClean, shouldDi
 	}, [shouldWrite, isRunning, isPaused])
 
 	return (
-		<div className={`${styles.hwe} ${styles['open-tag']}`}>
-			<span className={`${styles.hwe} ${styles['open-tag__hook']}`}>{pencil.oHook}</span>
-			<span className={`${styles.hwe} ${styles['open-tag__name']}`}>{pencil.name}</span>
+		<div>
+			<Hook>{pencil.oHook}</Hook>
+			<Name>{pencil.name}</Name>
 			<AttrList attr={attr} shouldWrite={shouldWriteAttr} shouldClean={shouldClean} onEnd={play} />
-			<span className={`${styles.hwe} ${styles['open-tag__hook']}`}>{pencil.cHook}</span>
+			<Hook>{pencil.cHook}</Hook>
 			<Cursor display={(shouldWrite || shouldDisplayCursor) && !shouldWriteAttr} blinkDeps={[pencil]} />
 		</div>
 	)

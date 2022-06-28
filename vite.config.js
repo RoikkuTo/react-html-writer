@@ -2,18 +2,18 @@ import { resolve } from 'path'
 import { defineConfig } from 'vite'
 
 export default defineConfig({
-	root: './test/demo',
 	build: {
 		lib: {
-			entry: resolve(__dirname, 'src/main.js'),
+			entry: resolve(__dirname, 'lib/index.ts'),
 			name: 'HTMLWriter',
 			fileName: format => `react-html-writer.${format}.js`
 		},
 		rollupOptions: {
-			external: ['@types/react', 'react'],
+			external: ['@types/react', '@types/react-dom', '@types/styled-components', 'react', 'react-dom', 'styled-components'],
 			output: {
 				globals: {
-					react: 'React'
+					react: 'React',
+					['styled-components']: 'StyleComponents'
 				}
 			}
 		}
@@ -21,8 +21,8 @@ export default defineConfig({
 	resolve: {
 		alias: {
 			'@': __dirname,
-			'@lib/components': resolve(__dirname, 'src/components'),
-			'@lib': resolve(__dirname, 'src'),
+			'@lib/components': resolve(__dirname, 'lib/components'),
+			'@lib': resolve(__dirname, 'lib'),
 			'@demo/components': resolve(__dirname, 'test/demo/components'),
 			'@demo': resolve(__dirname, 'test/demo')
 		}

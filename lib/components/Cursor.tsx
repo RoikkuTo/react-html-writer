@@ -1,5 +1,5 @@
+import { CursorContainer } from '@lib/style/index.style'
 import React, { useEffect, useState } from 'react'
-import styles from '../style/style.module.css'
 
 interface CursorProps {
 	blinkDeps?: any[]
@@ -17,5 +17,9 @@ export default function Cursor({ blinkDeps, display }: CursorProps) {
 		}
 	}, [...(blinkDeps || [])])
 
-	return display ? <span className={`${styles.hwe} ${styles.cursor} ${bool ? styles['cursor--blink'] : ''}`}>&#8205;</span> : null
+	return (
+		<CursorContainer hidden={!display} blink={bool}>
+			&#8205;
+		</CursorContainer>
+	)
 }

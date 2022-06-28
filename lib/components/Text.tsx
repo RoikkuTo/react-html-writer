@@ -1,18 +1,16 @@
 import React, { useEffect, useState } from 'react'
 import usePencil, { ContainerEvents } from '@lib/hooks/usePencil'
 import Cursor from './Cursor'
-import styles from '../style/style.module.css'
+import { TextContainer } from '@lib/style/index.style'
 import { rand } from '@lib/utils'
+import { PrimaryComponent } from './types'
 
-interface StringProps extends ContainerEvents {
+interface StringPropsCore {
 	text: string
-	style?: Tobj<string>
-	shouldWrite?: boolean
-	shouldClean?: boolean | number
-	isChild?: boolean
-	isIndented?: boolean
-	loop?: boolean | number
+	style?: React.CSSProperties
 }
+
+type StringProps = StringPropsCore & PrimaryComponent & ContainerEvents
 
 export default function Text({ text, style, shouldWrite, shouldClean, isChild, isIndented, loop, onEnd }: StringProps) {
 	const [state, setState] = useState({
@@ -23,6 +21,9 @@ export default function Text({ text, style, shouldWrite, shouldClean, isChild, i
 	const { pencil, play, clean } = usePencil(
 		{ text },
 		{
+			onStart(pencilTarget) {
+				console.log('vuuuuu')
+			},
 			onEnd() {
 				onEnd?.()
 				if (!isChild && (loop || (typeof loop === 'number' && state.loopCount < loop))) {
@@ -45,9 +46,9 @@ export default function Text({ text, style, shouldWrite, shouldClean, isChild, i
 	}, [shouldWrite])
 
 	return (
-		<div className={`${styles.hwe} ${styles.string}`} style={style}>
+		<TextContainer style={style}>
 			<span>{pencil.text}</span>
-			<Cursor display={!!shouldWrite} blinkDeps={[pencil]} />
-		</div>
+			<Cursor display={!!shouldWrite || !isChild} blinkDeps={[pencil]} />
+		</TextContainer>
 	)
 }

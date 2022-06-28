@@ -1,12 +1,13 @@
 import React from 'react'
 import { createRoot } from 'react-dom/client'
 import { Tag, Text } from '@lib/index'
+// import { Tag, Text } from '../../dist/react-html-writer.es.js'
 
 import './style.css'
 
 const Demo = () => (
 	<>
-		<Tag name="div" attr={{ id: 'test', style: 'color: red' }} open loop>
+		<Tag name="div" attr={{ id: 'test', style: 'color: red' }} theme={{ fontFamily: '"Source Code Pro", monospace' }} open loop>
 			<Tag name="h1">
 				<Text text="Titre " />
 				<Tag name="span" attr={{ style: 'color: magenta' }}>
@@ -29,9 +30,11 @@ const Demo = () => (
 			</Tag>
 		</Tag>
 
-		<Tag name="p" open>
+		<Tag name="p" theme={{ fontFamily: 'Times', tagHookColor: 'yellow', tagNameColor: 'cyan', textColor: 'magenta' }} open>
 			<Text text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti est autem rerum ducimus omnis quos eum similique tempora dolores, ipsam nesciunt illum adipisci molestiae distinctio facere. Placeat nulla quibusdam quia?" />
 		</Tag>
+
+		<Text text="Lorem" />
 	</>
 )
 

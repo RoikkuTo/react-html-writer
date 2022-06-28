@@ -1,22 +1,21 @@
 import React, { useEffect, useState } from 'react'
 import Closing from './Closing'
 import Opening from './Opening'
+import { TagContainer } from '@lib/style/index.style'
 import useHand from '@lib/hooks/useHand'
 import { ContainerEvents } from '@lib/hooks/usePencil'
-import styles from '@lib/style/style.module.css'
 import { rand } from '@lib/utils'
+import { PrimaryComponent } from '../types'
+import Parent from '../Parent'
 
-interface TagProps extends ContainerEvents {
+interface TagPropsCore {
 	name: string
 	attr?: Tobj<string>
 	open?: boolean
-	loop?: boolean | number
-	shouldWrite?: boolean
-	shouldClean?: boolean | number
-	isChild?: boolean
-	isIndented?: boolean
 	children?: React.ReactNode
 }
+
+type TagProps = TagPropsCore & PrimaryComponent & ContainerEvents
 
 interface ContainerProps {
 	isOpen: boolean
@@ -26,17 +25,13 @@ interface ContainerProps {
 
 const Container = ({ isOpen, isSelected, children }: ContainerProps) => {
 	return (
-		<div
-			className={`${styles.hwe} ${styles.tag} 
-				${isOpen ? styles['tag--open'] : styles['tag--close']}
-				${isSelected ? styles['tag--select'] : ''}`}
-		>
+		<TagContainer isOpen={isOpen} isSelected={isSelected}>
 			{children}
-		</div>
+		</TagContainer>
 	)
 }
 
-export default function Tag({ name, open, attr = {}, loop, shouldWrite, shouldClean, isChild, isIndented, children, onEnd }: TagProps) {
+export default function Tag({ name, open, attr = {}, loop, theme, shouldWrite, shouldClean, isChild, isIndented, children, onEnd }: TagProps) {
 	const [state, setState] = useState({
 		isOpen: false,
 		isSelected: false,
@@ -75,7 +70,7 @@ export default function Tag({ name, open, attr = {}, loop, shouldWrite, shouldCl
 	}, [shouldWrite])
 
 	return (
-		<>
+		<Parent theme={theme} isChild={isChild}>
 			<Container {...state}>
 				<Opening
 					name={name}
@@ -86,7 +81,7 @@ export default function Tag({ name, open, attr = {}, loop, shouldWrite, shouldCl
 					shouldDisplayCursor={!isFinished && shouldWrite === undefined && hand === init}
 					isIndented={isIndented}
 				/>
-				<div className={`${styles.hwe} ${styles.content}`}>
+				<div>
 					{React.Children.map(children, (elm, i) =>
 						React.cloneElement(elm as any, {
 							shouldWrite: hand === i + 2,
@@ -105,6 +100,6 @@ export default function Tag({ name, open, attr = {}, loop, shouldWrite, shouldCl
 					onEnd={incrementHand}
 				/>
 			</Container>
-		</>
+		</Parent>
 	)
 }

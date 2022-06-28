@@ -1,5 +1,5 @@
 import { rand } from '@lib/utils'
-import { useCallback, useRef, useState } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 
 type pencilTarget = {
 	idx: number
@@ -39,49 +39,46 @@ export default function usePencil<T extends Tobj<string>>(content: T, e?: Pencil
 		}
 	})
 
-	const play = useCallback(
-		(delay?: number | boolean) => {
-			const end = () => {
-				setState(prev => ({ ...prev, isRunning: false }))
-				e?.onEnd?.(pencilTarget.current)
+	const end = useCallback(() => {
+		setState(prev => ({ ...prev, isRunning: false }))
+		e?.onEnd?.(pencilTarget.current)
+		return
+	}, e?.deps || [])
+
+	const write = useCallback((cursor: number) => {
+		if (cursor === mem.current[pencilTarget.current.key]?.length) {
+			pencilTarget.current.idx++
+			cursor = 0
+			cursorMem.current = 0
+
+			if (mem.current[pencilTarget.current.key]?.length === 0) {
+				setState(prev => ({ ...prev, isRunning: false, isPaused: true }))
+				e?.onPause?.(pencilTarget.current)
+				cursorMem.current = cursor
+				clearTimeout(timeout.current)
 				return
 			}
+		}
 
-			const write = (cursor: number) => {
-				if (cursor === mem.current[pencilTarget.current.key].length) {
-					pencilTarget.current.idx++
-					cursor = 0
-					cursorMem.current = 0
+		if (pencilTarget.current.key) {
+			setPencil(prev => ({
+				...prev,
+				[pencilTarget.current.key]: prev[pencilTarget.current.key] + mem.current[pencilTarget.current.key][cursor]
+			}))
+			timeout.current = setTimeout(write, rand(50, 270), cursor + 1)
+		} else end()
+	}, e?.deps || [])
 
-					if (mem.current[pencilTarget.current.key]?.length === 0) {
-						setState(prev => ({ ...prev, isRunning: false, isPaused: true }))
-						e?.onPause?.(pencilTarget.current)
-						cursorMem.current = cursor
-						clearTimeout(timeout.current)
-						return
-					}
-				}
+	const play = useCallback((delay?: number | boolean) => {
+		if (pencilTarget.current.key) {
+			if (typeof delay === 'boolean' && delay) timeout.current = setTimeout(write, rand(150, 230), cursorMem.current)
+			else if (typeof delay === 'number' && delay > -1) timeout.current = setTimeout(write, delay, cursorMem.current)
+			else write(cursorMem.current)
 
-				if (pencilTarget.current.key) {
-					setPencil(prev => ({
-						...prev,
-						[pencilTarget.current.key]: prev[pencilTarget.current.key] + mem.current[pencilTarget.current.key][cursor]
-					}))
-					timeout.current = setTimeout(write, rand(50, 270), cursor + 1)
-				} else end()
-			}
-
-			if (pencilTarget.current.key) {
-				if (typeof delay === 'boolean' && delay) setTimeout(write, rand(150, 230), cursorMem.current)
-				else if (typeof delay === 'number' && delay > -1) setTimeout(write, delay, cursorMem.current)
-				else write(cursorMem.current)
-
-				setState({ isRunning: true, isPaused: false })
-				e?.onStart?.(pencilTarget.current)
-			} else end()
-		},
-		[cursorMem, ...(e?.deps || [])]
-	)
+			setState({ isRunning: true, isPaused: false })
+			e?.onStart?.(pencilTarget.current)
+		} else end()
+	}, e?.deps || [])
 
 	const pause = useCallback(() => {
 		setState(prev => ({ ...prev, isRunning: false }))
@@ -92,12 +89,19 @@ export default function usePencil<T extends Tobj<string>>(content: T, e?: Pencil
 	const clean = useCallback(() => {
 		clearTimeout(timeout.current)
 		const nextPencil = Object.fromEntries(Object.keys(mem.current).map(key => [key, '']))
-		setState({ isRunning: false, isPaused: false })
 		cursorMem.current = 0
 		pencilTarget.current.idx = 0
 		pencilTarget.current.keys = Object.keys(nextPencil)
+		setState({ isRunning: false, isPaused: false })
 		setPencil(nextPencil)
 	}, e?.deps || [])
+
+	useEffect(
+		() => () => {
+			clearTimeout(timeout.current)
+		},
+		[]
+	)
 
 	return {
 		pencil,

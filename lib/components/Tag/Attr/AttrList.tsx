@@ -26,7 +26,7 @@ export default function AttrList({ attr, shouldWrite, shouldClean, onEnd }: Attr
 			{list.current.map(([key, value], i) => (
 				<Attr
 					key={i}
-					content={{ key: ' ' + key, equal: '=', quote1: '"', value, quote2: '"' }}
+					content={{ key: ' ' + key, symbol: '=', quote1: '"', value, quote2: '"' }}
 					shouldWrite={i === hand}
 					shouldClean={shouldClean}
 					onEnd={incrementHand as any}

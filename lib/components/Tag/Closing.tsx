@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import usePencil, { ContainerEvents } from '@lib/hooks/usePencil'
-import styles from '@lib/style/style.module.css'
 import Cursor from '../Cursor'
+import { Hook, Name } from '@lib/style/index.style'
 
 interface ClosingProps {
 	name: string
@@ -31,10 +31,10 @@ export default function Opening({ name, shouldWrite, shouldClean, shouldDisplayC
 	}, [shouldWrite, isRunning, isPaused])
 
 	return (
-		<div className={`${styles.hwe} ${styles['open-tag']}`}>
-			<span className={`${styles.hwe} ${styles['open-tag__hook']}`}>{pencil.oHook}</span>
-			<span className={`${styles.hwe} ${styles['open-tag__name']}`}>{pencil.name}</span>
-			<span className={`${styles.hwe} ${styles['open-tag__hook']}`}>{pencil.cHook}</span>
+		<div>
+			<Hook>{pencil.oHook}</Hook>
+			<Name>{pencil.name}</Name>
+			<Hook>{pencil.cHook}</Hook>
 			<Cursor display={shouldWrite || shouldDisplayCursor} blinkDeps={[pencil]} />
 		</div>
 	)
