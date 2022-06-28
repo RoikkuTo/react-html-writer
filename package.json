@@ -12,7 +12,7 @@
 	},
 	"scripts": {
 		"demo": "vite",
-		"build": "vite build",
+		"build": "vite build && tsc --project lib",
 		"preview": "vite preview"
 	},
 	"keywords": [
