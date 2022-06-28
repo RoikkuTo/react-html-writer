@@ -1,6 +1,6 @@
 {
 	"name": "react-html-writer",
-	"version": "3.0.0",
+	"version": "3.0.1",
 	"description": "Some react components to animate HTML code writing.",
 	"main": "./dist/react-html-writer.umd.js",
 	"module": "./dist/react-html-writer.es.js",
@@ -30,7 +30,7 @@
 	"author": "Loïc Etifier",
 	"license": "MIT",
 	"files": [
-		"build"
+		"dist"
 	],
 	"bugs": {
 		"url": "https://github.com/RoikkuTo/react-html-writer/issues"
