@@ -1,5 +1,5 @@
 /// <reference types="react" />
-import { PencilEvents } from '@lib/hooks/usePencil';
+import { PencilEvents } from '../../../hooks/usePencil';
 interface AttrProps extends PencilEvents {
     content: Record<'key' | 'symbol' | 'quote1' | 'value' | 'quote2', string>;
     shouldWrite: boolean;
@@ -7,3 +7,4 @@ interface AttrProps extends PencilEvents {
 }
 export default function Attr({ content, shouldWrite, shouldClean, onStart, onEnd }: AttrProps): JSX.Element;
 export {};
+//# sourceMappingURL=Attr.d.ts.map

@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
-import usePencil, { ContainerEvents } from '@lib/hooks/usePencil'
+import usePencil, { ContainerEvents } from '../hooks/usePencil'
 import Cursor from './Cursor'
-import { TextContainer } from '@lib/style/index.style'
-import { rand } from '@lib/utils'
+import { TextContainer } from '../style/index.style'
+import { rand } from '../utils'
 import { PrimaryComponent } from './types'
 
 interface StringPropsCore {
@@ -21,9 +21,6 @@ export default function Text({ text, style, shouldWrite, shouldClean, isChild, i
 	const { pencil, play, clean } = usePencil(
 		{ text },
 		{
-			onStart(pencilTarget) {
-				console.log('vuuuuu')
-			},
 			onEnd() {
 				onEnd?.()
 				if (!isChild && (loop || (typeof loop === 'number' && state.loopCount < loop))) {

@@ -1,0 +1,1 @@
+{"version":3,"file":"useHand.d.ts","sourceRoot":"","sources":["../../../lib/hooks/useHand.tsx"],"names":[],"mappings":";AACA,OAAO,EAAE,eAAe,EAAE,MAAM,aAAa,CAAA;AAE7C,MAAM,CAAC,OAAO,UAAU,OAAO,CAAC,IAAI,EAAE,MAAM,EAAE,GAAG,EAAE,MAAM,EAAE,CAAC,CAAC,EAAE,OAAO,CAAC,eAAe,EAAE,SAAS,CAAC;;;;;;kDAmBnD,MAAM,QAAQ,MAAM,KAAK,OAAO;gDAMjC,MAAM,QAAQ,MAAM,KAAK,OAAO;;EAW7E"}

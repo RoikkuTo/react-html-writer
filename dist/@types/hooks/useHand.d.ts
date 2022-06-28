@@ -10,3 +10,4 @@ export default function useHand(init: number, max: number, e?: Exclude<Container
     derementHand: (condition: boolean | ((prev: number, init: number) => boolean)) => void;
     reset: () => void;
 };
+//# sourceMappingURL=useHand.d.ts.map

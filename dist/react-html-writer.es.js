@@ -381,9 +381,6 @@ function Text({ text, style, shouldWrite, shouldClean, isChild, isIndented, loop
     loopCount: 0
   });
   const { pencil, play, clean } = usePencil({ text }, {
-    onStart(pencilTarget) {
-      console.log("vuuuuu");
-    },
     onEnd() {
       onEnd == null ? void 0 : onEnd();
       if (!isChild && (loop || typeof loop === "number" && state.loopCount < loop)) {

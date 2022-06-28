@@ -12,3 +12,4 @@ export declare const TextContainer: import("styled-components").StyledComponent<
 export declare const CursorContainer: import("styled-components").StyledComponent<"span", any, {
     blink: boolean;
 }, never>;
+//# sourceMappingURL=index.style.d.ts.map

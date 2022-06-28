@@ -7,3 +7,4 @@ interface ParentProps {
 }
 export default function Parent({ isChild, theme, children }: ParentProps): JSX.Element;
 export {};
+//# sourceMappingURL=Parent.d.ts.map

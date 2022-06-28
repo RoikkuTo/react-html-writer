@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
-import usePencil, { PencilEvents } from '@lib/hooks/usePencil'
-import Cursor from '@lib/components/Cursor'
-import { AttrName, AttrQuote, AttrSymbol, AttrValue } from '@lib/style/index.style'
+import usePencil, { PencilEvents } from '../../../hooks/usePencil'
+import Cursor from '../../../components/Cursor'
+import { AttrName, AttrQuote, AttrSymbol, AttrValue } from '../../../style/index.style'
 
 type PencilContent = {
 	key: string

@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import AttrList from './Attr/AttrList'
-import usePencil, { ContainerEvents } from '@lib/hooks/usePencil'
-import { Hook, Name } from '@lib/style/index.style'
+import usePencil, { ContainerEvents } from '../../hooks/usePencil'
+import { Hook, Name } from '../../style/index.style'
 import Cursor from '../Cursor'
-import { rand } from '@lib/utils'
+import { rand } from '../../utils'
 
 interface OpeningProps {
 	name: string

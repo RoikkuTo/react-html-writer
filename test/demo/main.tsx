@@ -1,7 +1,7 @@
 import React from 'react'
 import { createRoot } from 'react-dom/client'
-// import { Tag, Text } from '@lib/index'
-import { Tag, Text } from '../../dist/react-html-writer.es'
+import { Tag, Text } from '@lib/index'
+// import { Tag, Text } from '../../dist/react-html-writer.es'
 
 import './style.css'
 

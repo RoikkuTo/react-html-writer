@@ -1,4 +1,4 @@
-import defaultTheme from '@lib/style/theme.style'
+import defaultTheme from '../style/theme.style'
 import React from 'react'
 import { Theme, ThemeProvider } from 'styled-components'
 

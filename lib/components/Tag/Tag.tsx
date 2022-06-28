@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import Closing from './Closing'
 import Opening from './Opening'
-import { TagContainer } from '@lib/style/index.style'
-import useHand from '@lib/hooks/useHand'
-import { ContainerEvents } from '@lib/hooks/usePencil'
-import { rand } from '@lib/utils'
-import { PrimaryComponent } from '../types'
+import { TagContainer } from '../../style/index.style'
+import useHand from '../../hooks/useHand'
+import { ContainerEvents } from '../../hooks/usePencil'
+import { rand } from '../../utils'
+import { PrimaryComponent, HTMLWriterTheme } from '../../components/types'
 import Parent from '../Parent'
-import { HTMLWriterTheme } from '@lib/types'
 
 interface TagPropsCore {
 	name: string

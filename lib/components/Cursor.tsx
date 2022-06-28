@@ -1,5 +1,5 @@
-import { CursorContainer } from '@lib/style/index.style'
 import React, { useEffect, useState } from 'react'
+import { CursorContainer } from '../style/index.style'
 
 interface CursorProps {
 	blinkDeps?: any[]

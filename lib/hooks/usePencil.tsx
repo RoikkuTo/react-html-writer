@@ -1,4 +1,4 @@
-import { rand } from '@lib/utils'
+import { rand } from '../utils'
 import { useCallback, useEffect, useRef, useState } from 'react'
 
 type pencilTarget = {

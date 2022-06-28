@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react'
 import Attr from './Attr'
-import { ContainerEvents } from '@lib/hooks/usePencil'
-import useHand from '@lib/hooks/useHand'
+import { ContainerEvents } from '../../../hooks/usePencil'
+import useHand from '../../../hooks/useHand'
 
 interface AttrListProps extends ContainerEvents {
 	attr: Tobj<string>

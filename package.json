@@ -1,6 +1,6 @@
 {
 	"name": "react-html-writer",
-	"version": "3.0.1",
+	"version": "3.1.0",
 	"description": "Some react components to animate HTML code writing.",
 	"main": "./dist/react-html-writer.umd.js",
 	"module": "./dist/react-html-writer.es.js",
@@ -39,8 +39,8 @@
 	},
 	"homepage": "https://github.com/RoikkuTo/react-html-writer#readme",
 	"devDependencies": {
-		"vite": "^2.9.13",
-		"styled-components": "^5.3.5"
+		"styled-components": "^5.3.5",
+		"vite": "^2.9.13"
 	},
 	"peerDependencies": {
 		"@types/react": "^18.0.14",

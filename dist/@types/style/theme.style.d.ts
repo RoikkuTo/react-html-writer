@@ -14,3 +14,4 @@ declare const defaultTheme: {
     fontFamily: string;
 };
 export default defaultTheme;
+//# sourceMappingURL=theme.style.d.ts.map

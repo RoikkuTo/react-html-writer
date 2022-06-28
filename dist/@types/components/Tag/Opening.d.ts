@@ -1,5 +1,5 @@
 /// <reference types="react" />
-import { ContainerEvents } from '@lib/hooks/usePencil';
+import { ContainerEvents } from '../../hooks/usePencil';
 interface OpeningProps {
     name: string;
     attr: obj;
@@ -10,3 +10,4 @@ interface OpeningProps {
 }
 export default function Opening({ name, attr, shouldWrite, shouldClean, shouldDisplayCursor, isIndented, onEnd }: OpeningProps & ContainerEvents): JSX.Element;
 export {};
+//# sourceMappingURL=Opening.d.ts.map

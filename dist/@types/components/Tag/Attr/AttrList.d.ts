@@ -1,5 +1,5 @@
 /// <reference types="react" />
-import { ContainerEvents } from '@lib/hooks/usePencil';
+import { ContainerEvents } from '../../../hooks/usePencil';
 interface AttrListProps extends ContainerEvents {
     attr: Tobj<string>;
     shouldWrite: boolean;
@@ -7,3 +7,4 @@ interface AttrListProps extends ContainerEvents {
 }
 export default function AttrList({ attr, shouldWrite, shouldClean, onEnd }: AttrListProps): JSX.Element;
 export {};
+//# sourceMappingURL=AttrList.d.ts.map

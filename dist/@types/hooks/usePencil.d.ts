@@ -32,3 +32,4 @@ export default function usePencil<T extends Tobj<string>>(content: T, e?: Pencil
     isPaused: boolean;
 };
 export {};
+//# sourceMappingURL=usePencil.d.ts.map

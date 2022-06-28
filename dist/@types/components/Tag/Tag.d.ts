@@ -1,7 +1,6 @@
 import React from 'react';
-import { ContainerEvents } from '@lib/hooks/usePencil';
-import { PrimaryComponent } from '../types';
-import { HTMLWriterTheme } from '@lib/types';
+import { ContainerEvents } from '../../hooks/usePencil';
+import { PrimaryComponent, HTMLWriterTheme } from '../../components/types';
 interface TagPropsCore {
     name: string;
     attr?: Tobj<string>;
@@ -12,3 +11,4 @@ interface TagPropsCore {
 declare type TagProps = TagPropsCore & PrimaryComponent & ContainerEvents;
 export default function Tag({ name, open, attr, loop, theme, shouldWrite, shouldClean, isChild, isIndented, children, onEnd }: TagProps): JSX.Element;
 export {};
+//# sourceMappingURL=Tag.d.ts.map

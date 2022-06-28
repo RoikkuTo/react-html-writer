@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
-import usePencil, { ContainerEvents } from '@lib/hooks/usePencil'
+import usePencil, { ContainerEvents } from '../../hooks/usePencil'
 import Cursor from '../Cursor'
-import { Hook, Name } from '@lib/style/index.style'
+import { Hook, Name } from '../../style/index.style'
 
 interface ClosingProps {
 	name: string

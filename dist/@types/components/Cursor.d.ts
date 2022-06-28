@@ -5,3 +5,4 @@ interface CursorProps {
 }
 export default function Cursor({ blinkDeps, display }: CursorProps): JSX.Element;
 export {};
+//# sourceMappingURL=Cursor.d.ts.map

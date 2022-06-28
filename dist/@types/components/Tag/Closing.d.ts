@@ -1,5 +1,5 @@
 /// <reference types="react" />
-import { ContainerEvents } from '@lib/hooks/usePencil';
+import { ContainerEvents } from '../../hooks/usePencil';
 interface ClosingProps {
     name: string;
     shouldWrite: boolean;
@@ -8,3 +8,4 @@ interface ClosingProps {
 }
 export default function Opening({ name, shouldWrite, shouldClean, shouldDisplayCursor, onEnd }: ClosingProps & ContainerEvents): JSX.Element;
 export {};
+//# sourceMappingURL=Closing.d.ts.map
