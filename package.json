@@ -10,9 +10,11 @@
 			"require": "./dist/react-html-writer.umd.js"
 		}
 	},
+	"types": "./dist/@types/index.d.ts",
 	"scripts": {
 		"demo": "vite",
-		"build": "vite build && tsc --project lib",
+		"build": "vite build",
+		"postbuild": "tsc --project lib",
 		"preview": "vite preview"
 	},
 	"keywords": [

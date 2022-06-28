@@ -1,7 +1,7 @@
 import React from 'react';
 import { ContainerEvents } from '@lib/hooks/usePencil';
 import { PrimaryComponent } from '../types';
-import { HTMLWriterTheme } from '@lib/@types/types';
+import { HTMLWriterTheme } from '@lib/types';
 interface TagPropsCore {
     name: string;
     attr?: Tobj<string>;

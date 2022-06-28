@@ -7,7 +7,7 @@ import { ContainerEvents } from '@lib/hooks/usePencil'
 import { rand } from '@lib/utils'
 import { PrimaryComponent } from '../types'
 import Parent from '../Parent'
-import { HTMLWriterTheme } from '@lib/@types/types'
+import { HTMLWriterTheme } from '@lib/types'
 
 interface TagPropsCore {
 	name: string
