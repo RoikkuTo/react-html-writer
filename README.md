@@ -1,6 +1,6 @@
 # React HTML Writer
 
-Here are some components which will allow you to animate HTML writing on your application.
+Here are some components that will allow you to animate HTML writing on your React application.
 
 ## Installation
 
@@ -14,7 +14,7 @@ $ npm i react-html-writer
 
 `<Tag></Tag>`
 
-As a normal HTML tag, you can add any child element or string as a _Tag_ or _String_ component.
+As a normal HTML tag, you can nest as much `Tag` and `Text` component as you want.
 
 | Propertie | Type    | Description                                                                       |
 | --------- | ------- | --------------------------------------------------------------------------------- |
@@ -23,59 +23,59 @@ As a normal HTML tag, you can add any child element or string as a _Tag_ or _Str
 | open      | Boolean | Open de tags when the writing is finished                                         |
 | loop      | Boolean | Loop the animation                                                                |
 
-### String
+### Text
 
 `<Text />`
 
-This component is only used to write **strings**, so you cannot specify any string if not through the `text` property. The _String_ component is complitely independent from the _Tag_ component.
+This component is only used to write **strings**. The _Text_ component is complitely independent from the _Tag_ component, which means that use it by itself to simulate keyboard simple text writing.
 
-| Propertie | Type   | Description                                                               |
-| --------- | ------ | ------------------------------------------------------------------------- |
-| text      | String | Define the string to write                                                |
-| style     | Object | Style the defined text ( _this property will not appear during writing_ ) |
+| Propertie | Type   | Description                |
+| --------- | ------ | -------------------------- |
+| text      | String | Define the string to write |
+| style     | Object | Style the defined text     |
 
 ## Styling
 
-You can change the color of each part of your _Text_ and _Tags_.
+You can change the color of each part of your **Text** and **Tags**.
 
-_Text_ in the other hand can be styled via the `style` property from react.
+`<Text />` can be styled via the `style` property from react.
 
-_Tags_ are customizable through the `theme` prop. You can use those to change colors, sizes, and fonts.
+`<Tag></Tag>` in the other hand are customizable through the `theme` prop. You can use those to change colors, sizes, and fonts.
 
-| Variable              | Description                                               |
-| --------------------- | --------------------------------------------------------- |
-| cursorColor           | the cursor color                                          |
-| textColor             | the string color                                          |
-| tagHookColor          | the hooks color, so the greater and minus than ("<", ">") |
-| tagNameColor          | the tag names color                                       |
-| attrNameColor         | the attributes name color                                 |
-| attrSymbolColor       | the symbols color, the "="symbol basically                |
-| attrQuoteColor        | the attributes name color                                 |
-| attrValueColor        | the attributes value color                                |
-| selectColor           | the selection color                                       |
-| selectBackgroundColor | the background selection color                            |
-| fontSize              | the font size                                             |
-| fontFamily            | the font                                                  |
-| tagTabsize            | the tabulation size on indentation                        |
+| Variable              | Description                                           |
+| --------------------- | ----------------------------------------------------- |
+| cursorColor           | the cursor color                                      |
+| textColor             | text color                                            |
+| tagHookColor          | hooks color, so the greater and minus than ("<", ">") |
+| tagNameColor          | tag names color                                       |
+| attrNameColor         | the attributes name color                             |
+| attrSymbolColor       | symbols color, the "=" symbol basically               |
+| attrQuoteColor        | attributes name color                                 |
+| attrValueColor        | attributes value color                                |
+| selectColor           | the selection color                                   |
+| selectBackgroundColor | the background selection color                        |
+| fontSize              | the font size                                         |
+| fontFamily            | the font                                              |
+| tagTabsize            | tabulation size on indentation                        |
 
 ## Usage
+
+> For a full demo with animtions, try this [CodeSandBox](https://codesandbox.io/s/react-html-writer-cyxe8?codemirror=1&fontsize=14&hidenavigation=1&module=%2Fsrc%2Fdemo.js&theme=dark) or use the `demo.js` inside the _src/demo_ folder.
 
 A simple usage with a simple **HelloWorld**.
 
 ```javascript
 import React from 'react'
-import { Tag, String } from 'react-html-writer'
+import { Tag, Text } from 'react-html-writer'
 
 const HelloWorld = () => (
 	<Tag name="h1">
-		<Text text="Hello World !" />
+		<Text text="Hello World!" />
 	</Tag>
 )
 
 export default HelloWorld
 ```
-
-> If you want to import the library via the `script` tag in your HTML file, you can by using the `ReactHtmlWriter` global object.
 
 So the end result will look like this. ( _no animation_ )
 
@@ -83,7 +83,7 @@ So the end result will look like this. ( _no animation_ )
 <h1>Hello World !</h1>
 ```
 
-For a full demo with animtions, try this [CodeSandBox](https://codesandbox.io/s/react-html-writer-cyxe8?codemirror=1&fontsize=14&hidenavigation=1&module=%2Fsrc%2Fdemo.js&theme=dark) or use the `demo.js` inside the _src/demo_ folder.
+> If you want to import the library via the `script` tag in your HTML file, you can by using the `HTMLWriter` global object.
 
 ## Todolist
 
