@@ -14,7 +14,7 @@ $ npm i react-html-writer
 
 `<Tag></Tag>`
 
-As a normal HTML tag, you can nest as much `Tag` and `Text` component as you want.
+As a normal HTML tag, you can nest as much `Tag` and `Text` components as you want.
 
 | Propertie | Type    | Description                                                                       |
 | --------- | ------- | --------------------------------------------------------------------------------- |
@@ -27,7 +27,7 @@ As a normal HTML tag, you can nest as much `Tag` and `Text` component as you wan
 
 `<Text />`
 
-This component is only used to write **strings**. The _Text_ component is complitely independent from the _Tag_ component, which means that use it by itself to simulate keyboard simple text writing.
+This component is only used to write **strings**. The `Text` component is complitely independent from the `Tag` component, which means that you can use it by itself to simulate keyboard simple text writing.
 
 | Propertie | Type   | Description                |
 | --------- | ------ | -------------------------- |
@@ -60,7 +60,7 @@ You can change the color of each part of your **Text** and **Tags**.
 
 ## Usage
 
-> For a full demo with animtions, try this [CodeSandBox](https://codesandbox.io/s/react-html-writer-cyxe8?codemirror=1&fontsize=14&hidenavigation=1&module=%2Fsrc%2Fdemo.js&theme=dark) or use the `demo.js` inside the _src/demo_ folder.
+> For a full demo with animtions, try this [CodeSandBox](https://codesandbox.io/s/react-html-writer-cyxe8?codemirror=1&fontsize=14&hidenavigation=1&module=%2Fsrc%2Fdemo.js&theme=dark) or use the Demo page `npm run demo`.
 
 A simple usage with a simple **HelloWorld**.
 
@@ -77,7 +77,7 @@ const HelloWorld = () => (
 export default HelloWorld
 ```
 
-So the end result will look like this. ( _no animation_ )
+The end result will look like this. ( _no animation_ )
 
 ```html
 <h1>Hello World !</h1>

@@ -6,11 +6,17 @@ export default defineConfig({
 		lib: {
 			entry: resolve(__dirname, 'lib/index.ts'),
 			name: 'HTMLWriter',
-			formats: ['es', 'cjs'],
+			formats: ['es', 'umd'],
 			fileName: format => `react-html-writer.${format}.js`
 		},
 		rollupOptions: {
-			external: ['@types/react', '@types/react-dom', '@types/styled-components', 'react', 'react-dom', 'styled-components']
+			external: ['@types/react', '@types/react-dom', '@types/styled-components', 'react', 'react-dom', 'styled-components'],
+			output: {
+				globals: {
+					react: 'React',
+					['styled-components']: 'StyledComponents'
+				}
+			}
 		}
 	},
 	resolve: {
