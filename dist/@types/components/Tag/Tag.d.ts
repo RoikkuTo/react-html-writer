@@ -1,10 +1,10 @@
 import React from 'react';
 import { ContainerEvents } from '../../hooks/usePencil';
-import { PrimaryComponent, HTMLWriterTheme } from '../../components/types';
+import { PrimaryComponent, HTMLWriter } from '../../components/types';
 interface TagPropsCore {
     name: string;
-    attr?: Tobj<string>;
-    theme?: HTMLWriterTheme;
+    attr?: HTMLWriter.Attr;
+    theme?: HTMLWriter.Theme;
     open?: boolean;
     children?: React.ReactNode;
 }

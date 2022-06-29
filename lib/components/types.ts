@@ -9,6 +9,8 @@ export interface PrimaryComponent {
 }
 
 export namespace HTMLWriter {
+	export interface Attr extends Tobj<string> {}
+
 	export interface Theme {
 		cursorColor?: ReactCSSProperties['color']
 		textColor?: ReactCSSProperties['color']
@@ -25,6 +27,4 @@ export namespace HTMLWriter {
 		tagTabsize?: ReactCSSProperties['marginLeft']
 		fontFamily?: ReactCSSProperties['fontFamily']
 	}
-
-	export interface Attr extends Tobj<string> {}
 }
