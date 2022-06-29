@@ -1,6 +1,6 @@
 {
 	"name": "react-html-writer",
-	"version": "3.1.0",
+	"version": "3.1.1",
 	"description": "Some react components to animate HTML code writing.",
 	"main": "./dist/react-html-writer.umd.js",
 	"module": "./dist/react-html-writer.es.js",

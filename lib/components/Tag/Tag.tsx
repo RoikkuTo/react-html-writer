@@ -5,13 +5,13 @@ import { TagContainer } from '../../style/index.style'
 import useHand from '../../hooks/useHand'
 import { ContainerEvents } from '../../hooks/usePencil'
 import { rand } from '../../utils'
-import { PrimaryComponent, HTMLWriterTheme } from '../../components/types'
+import { PrimaryComponent, HTMLWriter } from '../../components/types'
 import Parent from '../Parent'
 
 interface TagPropsCore {
 	name: string
-	attr?: Tobj<string>
-	theme?: HTMLWriterTheme
+	attr?: HTMLWriter.Attr
+	theme?: HTMLWriter.Theme
 	open?: boolean
 	children?: React.ReactNode
 }
