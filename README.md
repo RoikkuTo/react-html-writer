@@ -60,7 +60,7 @@ You can change the color of each part of your **Text** and **Tags**.
 
 ## Usage
 
-> For a full demo with animtions, try this [CodeSandBox](https://codesandbox.io/s/react-html-writer-cyxe8?codemirror=1&fontsize=14&hidenavigation=1&module=%2Fsrc%2Fdemo.js&theme=dark) or use the Demo page `npm run demo`.
+> For a full demo with animtions, try this [CodeSandBox](https://codesandbox.io/s/react-html-writer-cyxe8?file=/src/demo.tsx) or use the Demo page `npm run demo`.
 
 A simple usage with a simple **HelloWorld**.
 
